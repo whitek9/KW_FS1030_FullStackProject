@@ -1,0 +1,30 @@
+table {
+    border: 1px solid black;
+    width: 90%;
+    border-collapse: collapse;
+    table-layout: auto;
+
+}
+
+th {
+    color: white;
+    background-color: #7e7373e5;
+    text-align: left;
+    padding: 15px;
+    border-bottom: 1px solid black;
+}
+
+td {
+    text-align: left;
+    border-bottom: 1px solid black;
+    padding: 15px;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+tr:hover {
+    color: white;
+    background-color: #7e7373b2;
+}

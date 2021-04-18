@@ -1,0 +1,39 @@
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.galleryImage {
+    position: relative;
+    max-width: 400px;
+    height: auto;
+    margin: 5px;
+}
+
+.galleryImageOverlay {
+    opacity: 0;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top left,#ffffff1f 49.5%,#ffffffa2 50.1%);
+    transition: .5s ease;
+}
+
+.galleryImage:hover .galleryImageOverlay {
+    opacity: 1;
+}
+
+.overlayText {
+    color: black;
+    padding-left: 10%;
+    padding-top: 5%;
+    max-width: 50%;
+    font-size: 1em;   
+}
+
+.boldText {
+    font-weight: bold;
+}

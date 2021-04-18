@@ -1,0 +1,34 @@
+{
+  "name": "kelly-course-project-fs1020-2020",
+  "version": "1.0.0",
+  "description": "Course project for FS1020, fall 2020 term",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node -r esm index.js",
+    "dev": "nodemon -r esm -r dotenv/config index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/whitek9/course-project.git"
+  },
+  "author": "Kelly White",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/whitek9/course-project/issues"
+  },
+  "homepage": "https://gitlab.com/whitek9/course-project#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.6",
+    "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}

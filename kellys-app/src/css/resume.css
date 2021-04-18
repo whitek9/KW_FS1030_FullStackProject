@@ -1,0 +1,33 @@
+.experienceList {
+    max-width: 600px;
+    text-align: left;
+    font-size: 12pt;
+    margin: 0;
+    padding-bottom: 20px;
+    visibility: visible;
+    opacity: 1;
+    animation: fade 1.25s;
+}
+
+.experienceListHidden {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.experienceList li {
+    max-width: 600px;
+    text-align: left;
+    padding-bottom: 30px;
+    font-size: 12pt;
+}
