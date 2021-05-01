@@ -8,8 +8,6 @@ import '../../css/contact.css';
 
 const LoginPage = () => {
 
-    // base loginSubmit function leveraged from example-master file provided in the sample from the course material
-
     let history = useHistory()
     let location = useLocation()
 

@@ -244,11 +244,30 @@ figure {
   background-color:#224874;
   color: white;
   border-radius: 15px;
-  border: white;
+  border: 1px solid white;
+  cursor: pointer;
 }
 
 .buttonGeneral:hover {
   background-color:#346fb3;
+}
+
+.buttonExit {
+  text-decoration: none;
+  background-color: white;
+  color: red;
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  border: 1px solid red;
+  cursor: pointer;
+}
+
+.buttonExit:hover {
+  background-color: red;
+  color: white;
+  border-radius: 15px;
+  border: red;
 }
 
 

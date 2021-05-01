@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faArrowRight, faEye} from '@fortawesome/free-solid-svg-icons'
+
 import './css/sitewideStyles.css'
 
 import Home from './components/pages/home'
@@ -27,7 +28,7 @@ function App() {
           <Route path='/login' component={LoginPage}/>
           <SecureRoute path='/admin'>
             <AdminPage />
-          </SecureRoute>      
+          </SecureRoute>   
           <Route component={Error}/>
         </Switch>
         <Footer />

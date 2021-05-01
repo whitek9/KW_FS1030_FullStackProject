@@ -30,9 +30,11 @@
     max-width: 177px;
 }
 
-.formLeft select {
+select {
     font-family: 'Inter', sans-serif;
     margin-bottom: 20px;
+    height: 22px;
+    max-width: 185px;
 }
 
 .formLeft textarea {

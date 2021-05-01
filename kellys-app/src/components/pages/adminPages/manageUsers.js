@@ -5,6 +5,7 @@ const ManageUsers = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [isAdmin, setIsAdmin] = useState("")
 
     
     const formSubmit = async event => {
@@ -15,7 +16,7 @@ const ManageUsers = () => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
                 },
-            body: JSON.stringify({name, email, password})
+            body: JSON.stringify({name, email, password, isAdmin})
         })
         const payload = await response.json()
         if (response.status >= 400) {
@@ -26,7 +27,6 @@ const ManageUsers = () => {
             setEmail('')
             setPassword('')
         }
-        
     }
 
     return (
