@@ -3,13 +3,6 @@ import Navigation from '../shared/navigation'
 import Sidebar from '../shared/sidebar.js'
 
 import '../../css/resume.css';
-import SIMPLIILogo from '../../images/icons/simplii-financial.png'
-import TDLogo from '../../images/icons/TD-icon.png'
-import PEPSICOLogo from '../../images/icons/pepsico-symbol.png'
-import YORKLogo from '../../images/icons/york-logo.jpg'
-import MCMASTERLogo from '../../images/icons/mcmaster-logo.png'
-import WATERLOOLogo from '../../images/icons/waterloo-logo.png'
-import CIBCLogo from '../../images/icons/cibc-logo.jpg'
  
 const Resume = () => {
 

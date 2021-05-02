@@ -17,8 +17,8 @@ To get the project running:
 - [x] Create the REST APIs to fetch from MySQL
     - [x] Generate code to connect to MySQL
     - [x] Create APIs to GET, POST, DELETE, UPDATE etc.
-- [ ] Dynamic data on the portfolio and resume pages
-    - [x] Create an admin panel to manage your portfolio and resume page (Similar to your group project in FS1000)
+- [x] Dynamic data on the portfolio and resume pages
+- [x] Create an admin panel to manage your portfolio and resume page (Similar to your group project in FS1000)
 - [x] The admin panel will have user login
-- [ ] Admin panel will let you CRUD portfolio items
+- [x] Admin panel will let you CRUD portfolio items
 - [x] Admin panel will let you CRUD resume items

@@ -1,7 +1,16 @@
 import express from 'express'
+import multer from 'multer'
+import path from 'path'
 import connection from '../database/connection'
 
 const portfolioRouter = express.Router()
+
+const storage = multer.diskStorage({
+    destination: path.join(__dirname,'../images/'),
+    filename: function (req, file, cb) {
+        cb(null, file.originalname)
+    }
+})
 
 portfolioRouter.get('/portfolio/items', (req,res) => {
     
@@ -21,12 +30,17 @@ portfolioRouter.get('/portfolio/items', (req,res) => {
 
 portfolioRouter.post('/portfolio/new_item', (req,res) => {
 
-    let item = req.body
-    let sql = "INSERT INTO `portfolio_entries` (`title`, `description`, `image`, `url`) VALUES (?,?,?,?)"
+    let upload = multer({ storage: storage}).single('image')
+    
+    upload(req, res, function(err) {
+        // const image_name = req.file.filename
+        const image_name = Date.now() + '-' + req.file.originalname
 
-    
-    connection.query( sql, [item.title, item.description, item.image, item.url], function (error, results, fields) {
-    
+        let item = req.body
+        let sql = "INSERT INTO `portfolio_entries` (`title`, `description`, `image`, `url`) VALUES (?,?,?,?)"
+        
+        connection.query( sql, [item.title, item.description, image_name, item.urlField], function (error, results, fields) {
+        
             if (error) throw error
     
             if (results.affectedRows == 0) {
@@ -38,8 +52,8 @@ portfolioRouter.post('/portfolio/new_item', (req,res) => {
                 .status(201)
                 .json( { message: `Entry Successfully Created` } )
             }
-        }
-    )
+        })
+    })
 })
 
 portfolioRouter.put('/portfolio/edit_item/:id', (req,res) => {

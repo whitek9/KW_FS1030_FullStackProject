@@ -1,50 +1,66 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
+import axios from 'axios'
 import {useHistory} from 'react-router-dom'
 
 const AddResume = () => {
 
     let history = useHistory()
 
-    const [logo, setLogo] = useState("")
+    const [logo, setLogo] = useState({
+        file: [],
+        filePreview: null
+    })
+
     const [jobTitle, setJobTitle] = useState("")
     const [company, setCompany] = useState("")
     const [startDate, setStartDate] = useState("")
     const [endDate, setEndDate] = useState("")
     const [experience, setExperience] = useState("")
 
+    const handleLogoChange = (event) => {
+        setLogo({
+            ...logo,
+            file: event.target.files[0],
+            filePreview:URL.createObjectURL(event.target.files[0])
+        })
+    }
+
     
     const formSubmit = async event => {
-        event.preventDefault()
-        const response = await fetch('http://localhost:4000/resume/new_item', {    
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-                },
-            body: JSON.stringify({logo, jobTitle, company, startDate, endDate, experience})
-        })
-        if (response.status >= 400) {
-            alert(`Oops! You got an error!`)
-        } else {
-            alert(`New Entry Created`)
 
-            history.push(`/admin/manage-resume/`)
-            window.location.reload()
-        }
-        
+        let resumeForm = document.getElementById('resumeForm')
+        const formData = new FormData(resumeForm)
+        formData.append('logo', logo.file)
+        event.preventDefault()
+
+        axios.post("http://localhost:4000/resume/new_item", formData,{   
+            headers: { "Content-Type": "multipart/form-data" } 
+        }).then(res => {
+            if (res.status >= 400) {
+                alert(res)
+            } else {
+                alert(`New Entry Created`)
+    
+                history.push(`/admin/manage-resume/`)
+                window.location.reload()
+            }
+            })  
     }
     
     return (
         <main className='containerColumn'>
             <h5>Add Resume Entry</h5>
-            <form className="formLeft" name="contactForm" onSubmit={formSubmit}>
+            <form 
+                className="formLeft" 
+                id="resumeForm"
+                onSubmit={formSubmit}
+            >
                 <label htmlFor="logo">Logo</label>
                 <input 
                     name="logo"
-                    type="text" 
+                    type="file" 
                     required 
-                    value={logo} 
-                    onChange={e => setLogo(e.target.value)}
+                    onChange={handleLogoChange}
                     autoFocus 
                 />
 
